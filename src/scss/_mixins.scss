@@ -1,0 +1,101 @@
+// для автоматического подключения шрифтов
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+        font-family: $font_name;
+        font-display: swap;
+        src: url("../fonts/#{$file_name}.woff") format("woff"),
+        url("../fonts/#{$file_name}.woff2") format("woff2");
+        font-weight: #{$weight};
+        font-style: #{$style};
+    }
+}
+
+// clamp
+@mixin clamp($property, $startValue, $minValue, $maxSize:$maxWidthContainer, $minSize:$minWidth, $v:vw) {
+    // стандартный рамер шрифта
+    $rem: 16;
+
+    // перевод переданных параметров в rem
+    $sv: math.div($startValue, $rem);
+    $mv: math.div($minValue, $rem);
+    $maxS: math.div($maxSize, $rem);
+    $minS: math.div($minSize, $rem);
+
+    // расчет предвочтительного значения
+    $slope: math.div(($sv - $mv), ($maxS - $minS));
+    $yAxisIntersection: -$minS * $slope + $mv;
+
+    // относительно ширины или высоты будет расчет
+    $vv: '';
+
+    @if $v==vw {
+        $vv: "vw";
+    }
+    @else {
+        $vv: "vh";
+    }
+    
+    //вывод результата 
+    #{$property}: clamp(#{$mv+ rem}, #{$yAxisIntersection + rem} + #{($slope * 100) + #{$vv}}, #{$sv+rem});
+}
+
+// РАЗМЕРЫ
+// для использования в другом файле добавить
+// @use 'sass:math';
+
+// % 
+@function prc($pxOne, $pxTwo) {
+    $result: math.div($pxOne, $pxTwo) * 100%;
+    @return $result;
+}
+
+// REM 
+@function rem($px) {
+    $result: math.div($px, 16) + rem;
+    @return $result;
+}
+
+//EM
+@function em($px,$fz:$fontSize) {
+    $result: math.div($px, $fz) + em;
+    @return $result;
+}
+
+// подсчет высоты слайда для мультирядного swiper а
+@function heigthSwiperSlide($rows, $spaceBetween) {
+    $result: calc((100% - ((#{$spaceBetween + px}) * (#{$rows - 1}))) / #{$rows});
+    @return $result;
+}
+
+
+// отзывчивый CSS New(лучше использовать clamp)
+@mixin adaptiveValue($property, $startValue, $minValue, $startSize:$maxWidthContainer, $minSize:$minWidth, $type:1) {
+    $addValue: $startValue - $minValue;
+
+    @if $type==1 {
+        // только если меньше контейнера
+        #{$property}: rem($startValue);
+
+        @media (max-width: #{em($startSize)}) and (min-width: #{em($minSize)}) {
+            
+            #{$property}: calc(#{rem($minValue)} + #{$addValue} * ((100vw - #{rem($minSize)}) / #{$startSize - $minSize}));
+        }
+        @media (max-width: #{em($minSize)}) {
+            #{$property}: rem($minValue);
+        }
+    }
+
+    @else if $type==2 {
+        // только если больше контейнера
+        #{$property}: rem($startValue);
+
+        @media (min-width: #{em($startSize)}) {
+            #{$property}: calc(#{rem($minValue)} + #{$addValue} * ((100vw - #{rem($minSize)}) / #{$maxWidth - $minSize}));
+        }
+    }
+
+    @else {
+        // всегда
+        #{$property}: calc(#{rem($minValue)} + #{$addValue} * ((100vw - #{rem($minSize)}) / #{$maxWidth - $minSize}))
+    }
+}

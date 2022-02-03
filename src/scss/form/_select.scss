@@ -1,0 +1,66 @@
+// почти не кастомизируется
+.select {
+    position: relative;
+    display: flex;
+    width: rem(260);
+    height: rem(40);
+    line-height: rem(40);
+    background: red;
+    overflow: hidden;
+    border-radius: rem(5);
+    color: #fff;
+
+    &::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 rem(14);
+        color: inherit;
+        background: #000;
+        cursor: pointer;
+        pointer-events: none;
+        transition: all 0.3s ease 0s;
+    }
+    &:focus-within,
+    &:hover{
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        &::after {
+            color: red;
+            background: #5c6664;
+        }
+    }
+
+    select {
+        position: relative;
+        appearance: none;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        background: #5c6664;
+        background-image: none;
+        font-size: rem(18);
+        line-height: rem(18);
+        
+        width: 100%;
+        flex: 1;
+        padding: 0 rem(50) 0 rem(10);
+        color: inherit;
+        cursor: pointer;
+    
+        option{
+            font-size: inherit;
+            color: inherit;
+            background: inherit;
+
+            &:disabled{
+                color: rgba(#fff, 0.3);
+                background: #5c6664;
+            }
+        }
+    }
+    
+    select::-ms-expand {
+        display: none;
+    }
+}

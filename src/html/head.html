@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="@@lang">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- не забыть отключить -->
+    <meta name="robots" content="none" />
+    <!-- описание страницы -->
+    <meta name="Description" content="@@meta_desc" />
+    <title>@@title</title>
+
+    @@if(context.fa === true){
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    }
+    @@if(context.fontawesome === true){
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    }
+    <link rel="stylesheet" href="css/style.min.css">
+</head>

@@ -1,0 +1,58 @@
+
+.video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-color: #000;
+
+    // .video__media
+    &__media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    // .video__button
+    &__button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: rem(68);
+        height: rem(48);
+        border: none;
+        background-color: transparent;
+        outline: none;
+
+        display: none;
+
+        &-shape {
+            fill: #212121;
+            fill-opacity: 0.8;
+        }
+
+        &-icon {
+            fill: #fff;
+        }
+    }
+
+    &:hover,
+    .video__button:focus {
+        .video__button-shape {
+            fill: #ff0000;
+            fill-opacity: 1;
+        }
+    }
+
+    &--enabled {
+        cursor: pointer;
+
+        .video__button {
+            display: block;
+        }
+    }
+}

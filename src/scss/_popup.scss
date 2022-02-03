@@ -1,0 +1,64 @@
+// общие стили
+.popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease 0s;
+
+    // удалить
+    background-color: rgba(255, 255, 255, 0.8);
+
+
+    // .popup__body
+    &__body {
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // .popup__content
+    &__content {
+        transition: all 0.8s ease 0s;
+        opacity: 0;
+        transform: translate(0px, -100%);
+        position: relative;
+
+        // удалить
+        background-color: #fff;
+        color: #000;
+        max-width: rem(600);
+    }
+
+
+    // .popup__title удалить все
+    &__title {
+        font-size: rem(40);
+        margin-bottom: rem(3);
+        text-align: center;
+    }
+
+    // .popup__text удалить все
+    &__text {}
+
+}
+
+.popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup.open .popup__content {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+

@@ -1,0 +1,214 @@
+@import '../../node_modules/nouislider/dist/nouislider';
+
+// =============== CUSTOM ===============
+
+// выбираем конкретный слайдер(для группы задать одинаковый селектор)
+.range {
+
+    &__inputs{
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-bottom: rem(15);
+        
+    }
+
+    &__label{
+        flex: 0 1 20%;
+    }
+
+    &__input{
+        width: 100%;
+        padding: rem(10);
+        text-align: center;
+    }
+
+    .noUi-target {
+        background-color: none;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    // толщина горизонтального слайдера
+    .noUi-horizontal {
+        height: rem(10);
+    }
+
+    // толщина вертикального слайдера
+    .noUi-vertical {
+        // width: 20px;
+    }
+
+
+    // стили полоски по которой ходят ползунки
+    .noUi-connects {
+        background-color: red;
+        border-radius: rem(50);
+    }
+
+    // полоска с выбранными диапазонами
+    .noUi-connect {
+        background-color: blue;
+    }
+
+
+    // ====== ползунки ======
+    // позиционирование
+    // задаем размеры
+    $width: rem(20);
+    $height: rem(20);
+
+
+    // при горизонатльном 
+    .noUi-horizontal .noUi-handle {
+        width: $width;
+        height: $height;
+        // центрировать на глаз
+        transform: translate(rem(-5), 0);
+    }
+
+    // при веритикальном
+    // .noUi-vertical .noUi-handle {
+    //     width: $width;
+    //     height: $height;
+    //     transform: translate(-80%, 0);
+    // }
+
+    //===== оформление ======
+    .noUi-handle {
+        border-radius: 50%;
+        border: rem(1) solid red;
+        background-color: orange;
+        cursor: pointer;
+        outline: none;
+        box-shadow: none;
+
+        &:hover {
+            background-color: red;
+        }
+
+        // активный ползунок
+        &.noUi-active {
+            box-shadow: none;
+            background-color: black;
+        }
+
+        &::after,
+        &::before {
+            content: none;
+        }
+    }
+
+
+    // .#{$noUi-css-prefix}-tooltip{
+    //     position: relative;
+    //     top: -100px;
+    //     left: 0;
+    // }
+}
+
+.price {
+
+    &__inputs{
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-bottom: rem(15);
+        
+    }
+
+    &__label{
+        flex: 0 1 20%;
+    }
+
+    &__input{
+        width: 100%;
+        padding: rem(10);
+        text-align: center;
+    }
+
+    .noUi-target {
+        background-color: none;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    // толщина горизонтального слайдера
+    .noUi-horizontal {
+        height: rem(10);
+    }
+
+    // толщина вертикального слайдера
+    .noUi-vertical {
+        // width: 20px;
+    }
+
+
+    // стили полоски по которой ходят ползунки
+    .noUi-connects {
+        background-color: red;
+        border-radius: rem(50);
+    }
+
+    // полоска с выбранными диапазонами
+    .noUi-connect {
+        background-color: blue;
+    }
+
+
+    // ====== ползунки ======
+    // позиционирование
+    // задаем размеры
+    $width: rem(20);
+    $height: rem(20);
+
+
+    // при горизонатльном 
+    .noUi-horizontal .noUi-handle {
+        width: $width;
+        height: $height;
+        // центрировать на глаз
+        transform: translate(rem(-5), 0);
+    }
+
+    // при веритикальном
+    // .noUi-vertical .noUi-handle {
+    //     width: $width;
+    //     height: $height;
+    //     transform: translate(-80%, 0);
+    // }
+
+    //===== оформление ======
+    .noUi-handle {
+        border-radius: 50%;
+        border: rem(1) solid red;
+        background-color: orange;
+        cursor: pointer;
+        outline: none;
+        box-shadow: none;
+
+        &:hover {
+            background-color: red;
+        }
+
+        // активный ползунок
+        &.noUi-active {
+            box-shadow: none;
+            background-color: black;
+        }
+
+        &::after,
+        &::before {
+            content: none;
+        }
+    }
+
+
+    // .#{$noUi-css-prefix}-tooltip{
+    //     position: relative;
+    //     top: -100px;
+    //     left: 0;
+    // }
+}

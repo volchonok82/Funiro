@@ -1,0 +1,51 @@
+.filter {
+
+    // .filter__buttons
+    &__buttons {
+        display: flex;
+        max-width: 100%;
+        font-size: rem(22);
+        padding: rem(15);
+        border: 1px solid black;
+
+        list-style: none;
+
+        li {
+            flex: 1 1 25%;
+        }
+    }
+
+    // .filter__button
+    &__button {
+        width: 100%;
+        text-transform: uppercase;
+        padding: rem(15);
+        border: 1px solid black;
+
+        &._active {
+            color: red;
+            border-color: red;
+        }
+    }
+
+    // .filter__items
+    &__items {
+        border: 1px solid black;
+        display: grid;
+        grid-template: auto / repeat(3, 1fr);
+        gap: rem(15);
+    }
+
+    // .filter__item
+    &__item {
+        min-height: 100px;
+        border: 1px solid red;
+        opacity: 1;
+        transition: all 1s ease 0s;
+
+        &._hide {
+            display: none;
+            opacity: 0;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+node_modules
+build
+templates
+notes.txt
+
+
+#src
+src/files
+src/PHPMailer
+src/php

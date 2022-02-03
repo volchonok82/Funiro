@@ -1,0 +1,71 @@
+/**/
+// === Бургер ===
+.icon-menu {
+    display: none;
+
+    @media (max-width: $sm) {
+
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: rem(50);
+        height: rem(24);
+        cursor: pointer;
+        border: none;
+
+        span,
+        span::before,
+        span::after {
+            display: block;
+            position: absolute;
+            height: rem(4);
+            width: 100%;
+            transition: all 0.3s ease 0s;
+            background-color: #fff;
+        }
+
+        span::before,
+        span::after {
+            content: "";
+        }
+
+        span::before {
+            top: rem(-10);
+        }
+
+        span::after {
+            top: rem(10);
+        }
+
+        &:hover,
+        &:focus {
+
+            &.icon-menu span,
+            &.icon-menu span::before,
+            &.icon-menu span::after {
+                background-color: pink;
+            }
+        }
+
+        &:active {
+            opacity: 0.5;
+        }
+
+        &._active span {
+            width: rem(30);
+            transform: rotate(45deg);
+
+            &::before {
+                top: 0;
+                transform: rotate(0);
+            }
+
+            &::after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@@include('./html/head.html',{
+'lang':'ru',
+'meta_desc': 'описание страницы',
+'title': 'index',
+'fa' : false,
+'fontawesome' : false
+})
+
+<body>
+    <div class="_body-wrapper">
+        <!-- @@include('./html/_debug.html',{
+        'name':'value',
+        }) -->
+
+        @@include('./html/header.html',{})
+
+        <main></main>
+
+
+        @@include('./html/footer.html',{})
+    </div>
+
+    <!-- @@include('./html/popup.html',{
+    }) -->
+
+    @@include('./html/js.html',{
+    'gmaps': false,
+    })
+</body>
+
+</html>

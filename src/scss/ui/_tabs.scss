@@ -1,0 +1,46 @@
+.tabs {
+
+    // .tabs__body
+    &__body {}
+
+    // .tabs__buttons
+    &__buttons {
+        display: flex;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        border: 1px solid black;
+
+        li {
+            flex: 1 1 33.33%;
+        }
+    }
+
+    // .tabs__button
+    &__button {
+        width: 100%;
+        padding: rem(15);
+        text-transform: uppercase;
+        border: 1px solid black;
+
+        &._active {
+            color: red;
+            border-color: red;
+        }
+    }
+
+    // .tabs__blocks
+    &__blocks {}
+
+    // .tabs__block
+    &__block {
+        width: 100%;
+        min-height: 150px;
+        border: 1px solid black;
+
+        display: none;
+        &._active{
+            display: block;
+        }
+    }
+}

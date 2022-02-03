@@ -1,0 +1,192 @@
+@use "sass:math";
+
+// ===== SMART-GRID =====
+/*
+@import "smart-grid";
+
+// smartgrid reset
+// @include reset();
+
+._wrapper {
+    @include wrapper();
+}*/
+
+
+// ===== отладочный класс для отрисовки сетки в SmartGrid =====
+// .debug_grid {
+//     @include debug(rgba(0, 0, 0, 0.2), 1px solid aqua);
+//     z-index: 1;
+// }
+// ======================
+
+// ===== Подключение миксинов и функций =====
+@import "_mixins";
+
+
+// ====== ПОДКЛЮЧАЕМ ШРИФТЫ ===== 
+// &display=swap&subset=cyrillic-ext
+
+
+// если есть локальные файлы шрифтов
+// @import "fonts";
+
+// Иконочный шрифт
+// подключить если есть файл иконочного шрифта
+// @import "icons";
+
+
+// Шрифт по умолчанию
+$fontFamily: 'open-sans',
+sans-serif;
+$fontSize: 14; // где 14px - размер по умолчанию из макета 
+
+// Основные цвета
+$mainColor: #000; // цвет шрифта по умолчанию
+$whiteColor: #fff;
+$greyColor: #f2f2f2;
+$darkColor: #283645;
+$pinkColor: #d22856;
+$orangeColor: #f25b26;
+$greenColor: #3dc644;
+// ==========================================
+
+
+// =============== ПЕРЕМЕННЫЕ ===============
+// ==== переменные CSS ====
+// :root{
+// --green: #12af12;
+// }
+
+// ==== переменные SCSS ====
+// Минимальная ширина страницы
+$minWidth:320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера(0= нет ограничений)
+$maxWidthContainer: 1200; // как в макете
+// Общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+
+
+// ририна с отступами безопасности
+$containerWidth: $maxWidthContainer+$containerPadding;
+
+// брэйкпоинты(такие же как в смартгрид и bootstrap)
+// lg ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$lg: em($containerWidth, 16);
+// $md: 992px; планшеты, некоторые телефоны в горизонтальном положении
+$md: em(991.98, 16);
+// $sm: 768px; телефоны L
+$sm: em(767.98, 16);
+// $xs: 576px;
+$xs: em(575.98, 16);
+// $xxs: 480px;
+$xxs: em(479.98, 16);
+
+
+// =============== RETINA ===============
+// Retina x2
+$retina: "-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi";
+
+//  1.25 dpr 
+// $retina: "-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi";
+
+//  1.3 dpr 
+// $retina: "-webkit-min-device-pixel-ratio: 1.3),(min-resolution: 124.8dpi"; 
+
+//  1.5 dpr
+// $retina: "-webkit-min-device-pixel-ratio: 1.5),(min-resolution: 144dpi"; 
+// =========================================
+
+
+// Обнуление и общие параметры
+@import "_base-null";
+// ==========================================
+
+body {
+    font-family: $fontFamily;
+    font-size: rem($fontSize);
+    // font-weight: 500;
+    color: $mainColor;
+    line-height: 1;
+
+    // скролл заблокирован
+    &._lock {
+        overflow: hidden;
+        touch-action: none;
+    }
+}
+
+// ===== CONTAINER =====
+// wrapper без smartgrid
+/*
+._wrapper{
+    // max-width: rem($maxWidthContainer);
+    max-width: $maxWidthContainer;
+    margin: 0 auto;
+    box-sizing: content-box;
+    padding: 0 rem(15);
+}*/
+
+// стили будут применяться ко всем классам содержащим __container
+[class*="__container"] {
+    @if($maxWidthContainer>0) {
+        max-width: rem($maxWidthContainer);
+        box-sizing: content-box;
+        margin: 0 auto;
+    }
+
+    @if($containerPadding>0) {
+        // отступы по карям по 15px
+        padding-left: rem(math.div($containerPadding, 2));
+        padding-right: rem(math.div($containerPadding, 2));
+
+
+        // на маленьких экранах по 5px
+        @media (max-width: $xs) {
+            padding-left: rem(math.div($containerPadding - 20, 2));
+            padding-right:rem(math.div($containerPadding - 20, 2));
+        }
+    }
+}
+
+
+// =============== подключаемые ===============
+// оформление отдельных елементов(табы, фильтры)
+@import 'ui/ui-list';
+
+// элементы форм
+@import 'form/form-list';
+
+// анимации
+@import '_animation';
+
+// подключение стилей общих элементов
+@import "_common";
+
+
+
+// ========== SWIPER-SLIDER =========
+// @import '_swiper-custom';
+
+// =============== noUi ===============
+// @import '_noUi-custom';
+
+
+// ============== ОСНОВНЫЕ ==============
+// =============== HEADER ===============
+@import '_header';
+
+// =============== FOOTER ===============
+@import '_footer';
+
+// =============== POPUP ===============
+// @import '_popup';
+
+//подключение стилей отдельных страниц 
+// =============== Главная  ===============
+@import '_index';
+
+

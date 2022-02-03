@@ -1,0 +1,211 @@
+.header {
+    /*для фиксрованной шапки
+    position: fixed;*/
+    /*для плавающей шапки*/
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*для фиксрованной шапки
+     z-index: 10;*/
+    background-color: rgb(0 0 0 /0.3);
+    
+}
+
+// все стили задаем контейнеру
+.header__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // высота, обязательно такую же надо будет указать для menu__body::before
+    // min-height: 110px;
+
+}
+
+.header__logo {
+    position: relative;
+    /*для фиксрованной шапки*/
+    z-index: 5;
+    //=====
+
+}
+
+.header__menu {
+    flex: 1 0 auto;
+}
+
+
+.menu {
+    // если не задать 0, высота шапки будет как font-size
+    font-size: 0;
+    // .menu__body не трогаем
+    &__body {
+        // задаем font-size для меню или потом отдельно для ссылок
+        font-size: rem(14);
+    }
+
+    // .menu__list
+    &__list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .menu__item
+    &__item {
+        position: relative;
+    }
+
+    // .menu__link
+    &__link {
+        position: relative;
+        color: white;
+        font-size: rem(18);
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:hover,
+        &:focus {}
+
+        &:active {}
+    }
+}
+
+// ==============================
+// на экранах меньше sm размера
+
+@media (max-width: $sm) {
+
+    // три полоски
+    .icon-menu {
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: rem(50);
+        height: rem(24);
+        cursor: pointer;
+
+       
+
+        span,
+        span::before,
+        span::after {
+            display: block;
+            position: absolute;
+            height: rem(4);
+            width: 100%;
+            transition: all 0.3s ease 0s;
+            background-color: #fff;
+        }
+
+        span::before,
+        span::after {
+            content: "";
+        }
+
+        span::before {
+            top: rem(-10);
+        }
+
+        span::after {
+            top: rem(10);
+        }
+        &:hover,
+        &:focus {
+
+            &.icon-menu span,
+            &.icon-menu span::before,
+            &.icon-menu span::after {
+                background-color: pink;
+            }
+        }
+
+        &:active {
+            opacity: 0.5;
+        }
+
+        &._active span {
+            width: rem(30);
+            transform: rotate(45deg);
+
+            &::before {
+                top: 0;
+                transform: rotate(0);
+            }
+
+            &::after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+
+    .menu {
+
+        // .menu__body само меню, не вся шапка
+        &__body {
+            visibility: hidden;
+            position: fixed;
+            z-index: 2;
+            top: -100%; // поменять на то откуда нужно чтобы выезжало меню
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            //===
+            background-color: red;
+
+            // такой-же или чуть бльше высоты шапки
+            padding-top: rem(110);
+            // выезжает сверху
+            transition: all 0.3s ease 0s;
+
+            // .menu__body._active
+            &._active {
+                visibility: visible;
+                top: 0;
+
+                &::before {
+                    content: '';
+                    position: fixed;
+                    z-index: 5;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    // высота как у шапки
+                    height: rem(110);
+                    background-color: darkblue;
+                }
+            }
+        }
+        // .menu__list
+        &__list {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        // .menu__item
+        &__item {
+            width: 100%;
+            margin: 0;
+            padding: rem(22) 0;
+            text-align: center;
+            box-shadow: 0px rem(1) 0 0 #000000, inset 0px rem(1) 0 0 rgba(255, 255, 255, 0.15);
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
+        // .menu__link
+        &__link {
+            font-size: rem(18);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+}
