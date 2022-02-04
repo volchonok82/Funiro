@@ -123,7 +123,7 @@ if (spollersArray.length > 0) {
                 /*Имитация ховера*/
                 if (!isNoHover()) {
                     if (spollerTitle.dataset.spoller == "hover") {
-                        console.log(spollerTitle);
+                        // console.log(spollerTitle);
 
                         spollerTitle.onmouseenter = (e) => {
                             if (!spollerTitle.classList.contains('_active')) {
@@ -170,7 +170,7 @@ if (spollersArray.length > 0) {
         const spollerActiveTitle = spollersBlock.querySelector('[data-spoller]._active');
         if (spollerActiveTitle) {
             spollerActiveTitle.classList.remove('_active');
-            _slideUp(spollerActiveTitle.nextElementSibling, 500);
+            _slideUp(spollerActiveTitle.nextElementSibling, 300);
         }
     }
 }

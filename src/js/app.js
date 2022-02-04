@@ -7,21 +7,21 @@ import * as is from "./modules/is.js";
 //================================================
 
 // ===== HEADER =====
-// import * as headerAction from "./modules/header.js";
+import * as headerAction from "./modules/header.js";
 // работа бургера
-// headerAction.actionBurgerMenu();
+headerAction.actionBurgerMenu();
 // скрытие хедера при прокрутке
-// headerAction.hideHeader('.header', 100);
+headerAction.hideHeader('.header', 100);
 // установка отступа для следующего за хедером элемента (не main)
 // headerAction.setPaddingHeaderNextBlock('.header', "Selector");
 //================================================
 
 // ===== dynamic adaptiv=====
 // import * as da from "./modules/dynamicAdapt.js";
-//================================================
+//================================================  
 
 // ===== spollers (ломают IE11)=====
-// import * as spollers from "./modules/spoller.js";
+import * as spollers from "./modules/spoller.js";
 //================================================
 
 // ===== filter and tabs =====
@@ -49,7 +49,7 @@ import * as is from "./modules/is.js";
 //================================================
 
 //  ===== SWIPER (не работает в IE11)===== 
-// import * as swiper from "./modules/custom-swiper.js";
+// import * as swiper from "./modules/swiper-custom.js";
 //================================================
 
 //  ===== noUiSlider===== 

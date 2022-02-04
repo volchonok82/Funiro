@@ -1,9 +1,391 @@
-/**/
+.header {
+    position: fixed;
+    z-index: 50;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    background: #F9F1E7;
+
+    // .header__container
+    &__container {}
+
+    // .header__body
+    &__body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: rem(5) 0;
+        min-height: rem(125);
+
+        @media (max-width: $md) {
+            min-height: rem(80);
+        }
+
+    }
+
+    // .header__main
+    &__main {
+        flex: 0 0 prc(494, 1240);
+        display: flex;
+        align-items: center;
+
+        @media (max-width: $md) {
+            flex: 1 1 auto;
+        }
+    }
+
+    // .header__logo
+    &__logo {
+        position: relative;
+        z-index: 5;
+        font-size: rem(24);
+        font-weight: 700;
+        line-height: math.div(29, 24);
+        color: #000;
+    }
+
+    // .header__menu
+    &__menu {
+        flex: 0 1 rem(420);
+    }
+
+    // .header__search
+    &__search {
+        @include clamp("padding-right", 30, 15);
+
+        @media (min-width: $md) {
+            flex: 1 1 auto;
+        }
+    }
+
+    // .header__actions
+    &__actions {}
+}
+
+.menu {
+
+    // .menu__body
+    &__body {
+        @media (max-width: $sm) {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            top: 0;
+            left: -100%;
+            padding: rem(70) rem(15) rem(30);
+
+            background-color: #fcf8f3;
+            transition: left 0.3s ease 0s;
+
+            &::before {
+                content: '';
+                position: fixed;
+                z-index: 3;
+                
+                width: 100%;
+                height: rem(80);
+                top: 0;
+                left: -100%;
+                background-color: #fcf8f3;
+                transition: left 0.3s ease 0s;
+            }
+
+            &._active {
+                left: 0;
+                &::before{
+                    left: 0;
+                }          
+            }
+
+        }
+    }
+
+    // .menu__list
+    &__list {
+        @media (min-width: $sm) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+    }
+
+    // .menu__item
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        margin: 0 em(3);
+        padding: rem(5) 0;
+
+        @media (max-width: $sm) {
+            margin: 0 0 rem(15) 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // .menu__link
+    &__link {
+        font-weight: 500;
+        color: inherit;
+        line-height: 1.5;
+
+        transition: color 0.3s ease 0s;
+
+        &:hover,
+        &:focus {
+            color: $orangeColor;
+        }
+
+        @media (max-width: $sm) {
+            font-size: rem(24);
+            font-weight: 600;
+        }
+    }
+
+    // .menu__arrow
+    &__arrow {
+        font-size: rem(8);
+        align-self: stretch;
+        margin: 0 0 0 rem(8);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.3s ease 0s;
+
+        &._active {
+            transform: rotate(180deg);
+        }
+
+        &:hover,
+        &:focus {
+            color: $orangeColor;
+        }
+
+        @media (max-width: $sm) {
+            font-size: rem(14);
+        }
+    }
+
+    // .menu__sub-list
+    &__sub-list {
+        background-color: $orangeColor;
+
+        position: relative;
+        flex: 1 1 100%;
+        padding: rem(15);
+
+        @media (min-width: $sm) {
+            position: absolute;
+            z-index: 5;
+            width: 100%;
+            top: calc(100% - rem(5));
+            left: 0;
+            min-width: rem(200);
+        }
+
+        @media (max-width: $sm) {
+            margin: 0 rem(-15) rem(10);
+        }
+    }
+
+    // .menu__sub-item
+    &__sub-item {
+        &:not(:last-child) {
+            margin: 0 0 em(5) 0;
+
+            @media (max-width: $sm) {
+                margin: 0 0 em(15) 0;
+            }
+        }
+    }
+
+    // .menu__sub-link
+    &__sub-link {
+        color: $whiteColor;
+        line-height: 1.2;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+
+        @media (max-width: $sm) {
+            font-size: rem(18);
+        }
+    }
+}
+
+.search-form {
+    width: min(100%, rem(473));
+
+    &._active {
+        .search-form__body {
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
+        }
+
+        .search-form__icon {
+            color: $orangeColor;
+        }
+    }
+
+    // .search-form__icon
+    &__icon {
+        position: relative;
+        z-index: 5;
+        font-size: rem(24);
+        color: #262F56;
+        &:hover,
+        &:focus{
+            color: $orangeColor;
+        }
+
+        @media (min-width: $md) {
+            display: none;
+        }
+    }
+
+    // .search-form__body
+    &__body {
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: $md) {
+            position: absolute;
+            z-index: 5;
+            width: 100%;
+            left: 0;
+            top: -100%;
+
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 0 5px rgba($mainColor, 0.3);
+
+            transition: all 0.3s ease 0s;
+        }
+    }
+
+    // .search-form__btn
+    &__btn {
+        flex: 0 0 rem(45);
+        height: rem(45);
+
+        font-size: rem(15);
+        color: #333;
+    }
+
+    // .search-form__input
+    &__input {
+        font-size: rem(14);
+        line-height: 1.5;
+        color: $darkGreyColor;
+
+        width: 100%;
+        padding: 0 em(10, 14) 0 0;
+        border: none;
+        outline: none;
+
+    }
+}
+
+.action-header {
+
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    align-items: center;
+    @include clamp("gap", 32, 15);
+
+    // .action-header__item
+    &__item {
+
+        // .action-header__item--favorites
+        &--favorites {
+            color: #262F56;
+            font-size: rem(24);
+            transition: color 0.3s ease 0s;
+
+            &:hover,
+            &:focus {
+                color: $orangeColor;
+            }
+        }
+
+        // .action-header__item--avatar
+        &--avatar {
+            display: block;
+            @include clamp("width", 40, 30);
+            @include clamp("height", 40, 30);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+}
+
+.cart-header {
+
+    // .cart-header__icon
+    &__icon {
+        position: relative;
+        display: block;
+
+        color: #262F56;
+        font-size: rem(28);
+        transition: color 0.3s ease 0s;
+
+        &:hover,
+        &:focus {
+            color: $orangeColor;
+        }
+
+        span {
+            position: absolute;
+            width: rem(20);
+            height: rem(20);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: rem(-10);
+            right: rem(-10);
+            border-radius: 50%;
+
+            background-color: $orangeColor;
+            font-size: rem(12);
+            color: $whiteColor;
+        }
+    }
+
+    // .cart-header__body
+    &__body {}
+
+    // .cart-header__list
+    &__list {}
+}
+
+.cart-list {}
+
+
+
 // === Бургер ===
 .icon-menu {
     display: none;
 
     @media (max-width: $sm) {
+        margin-left: rem(15);
 
         z-index: 5;
         display: flex;
@@ -23,7 +405,7 @@
             height: rem(4);
             width: 100%;
             transition: all 0.3s ease 0s;
-            background-color: #fff;
+            background-color: #262F56;
         }
 
         span::before,
@@ -45,7 +427,8 @@
             &.icon-menu span,
             &.icon-menu span::before,
             &.icon-menu span::after {
-                background-color: pink;
+                background-color: $orangeColor;
+                ;
             }
         }
 

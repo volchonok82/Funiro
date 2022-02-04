@@ -1,6 +1,71 @@
-<header class="header">
+<header class="@@header-class header">
     <div class="header__container">
-     
+        <div class="header__body lockfix">
+            <div class="header__main">
+                <!-- логотип -->
+                <a href="index.html" class="header__logo">Funiro.</a>
+                <!-- меню -->
+                <div class="header__menu menu">
+                    <nav class="menu__body">
+                        <ul class="menu__list" data-spollers>
+                            <li class="menu__item">
+                                <a href="#" class="menu__link">Products</a>
+                                <button type="button" data-spoller="hover" class="menu__arrow _icon-arrow-bottom" aria-label="toggle sub-menu"></button>
+                                <ul class="menu__sub-list">
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Product 1</a></li>
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Product 2</a></li>
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Product 3</a></li>
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Product 4</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu__item">
+                                <a href="#" class="menu__link">Rooms</a>
+                                <button type="button" data-spoller="hover" class="menu__arrow _icon-arrow-bottom" aria-label="toggle sub-menu"></button>
+                                <ul class="menu__sub-list">
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Rooms 1</a></li>
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Rooms 2</a></li>
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Rooms 3</a></li>
+                                    <li class="menu__sub-item"><a href="#" class="menu__sub-link">Rooms 4</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu__item">
+                                <a href="#" class="menu__link">Inspirations</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- поиск -->
+            <div class="header__search">
+               <div class="search-form">
+                    <button class="search-form__icon _icon-search" aria-label="show search input"></button>
+                    <form class="search-form__body">
+                        <button type="submit" class="search-form__btn _icon-search" aria-label="Site search"></button>
+                        <input type="text" class="search-form__input" autocomplete="off" placeholder="Search for minimalist chair" aria-label="Site search">
+                    </form>
+               </div>
+            </div>
+
+            <div class="header__actions action-header">
+                <a href="#" class="action-header__item action-header__item--favorites _icon-heart" aria-label="Link to favorites"></a>
+                <div class="action-header__item cart-header">
+                    <a href="#" class="cart-header__icon _icon-cart" aria-label="Link to cart"><span>1</span></a>
+                    <div class="cart-header__body">
+                        <ul class="cart-header__list cart-list"></ul>
+                    </div>
+                </div>
+                <a href="#" class="action-header__item action-header__item--avatar">
+                    <picture>
+                        <source srcset="@img/avatar.webp" type="image/webp">
+                        <img src="@img/avatar.png" alt="avatar">
+                    </picture>
+                </a>
+            </div>
+            <!-- иконка бургера -->
+            <button type="button" class="icon-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>
-

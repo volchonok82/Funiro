@@ -6,22 +6,25 @@
 'fontawesome' : false
 })
 
-<body>
+<body class="home-page">
     <div class="_body-wrapper">
         <!-- @@include('./html/_debug.html',{
         'name':'value',
         }) -->
 
-        @@include('./html/header.html',{})
+        @@include('./html/header.html',{
+            'header-class': 'home-page__header'
+        })
 
-        <main>
-            <h1>
-                hello test
-            </h1>
+        <main class="home-page__main main">
+  
+
         </main>
 
 
-        @@include('./html/footer.html',{})
+        @@include('./html/footer.html',{
+            'footer-class': 'home-page__footer'
+        })
     </div>
 
     <!-- @@include('./html/popup.html',{

@@ -28,26 +28,25 @@
 
 
 // если есть локальные файлы шрифтов
-// @import "fonts";
+@import "fonts";
 
 // Иконочный шрифт
 // подключить если есть файл иконочного шрифта
-// @import "icons";
+@import "icons";
 
 
 // Шрифт по умолчанию
-$fontFamily: 'open-sans',
-sans-serif;
-$fontSize: 14; // где 14px - размер по умолчанию из макета 
+$fontFamily: Gilroy;
+$fontSize: 16; // где 14px - размер по умолчанию из макета 
 
 // Основные цвета
-$mainColor: #000; // цвет шрифта по умолчанию
+$mainColor: #3A3A3A; // цвет шрифта по умолчанию
+$greyColor: #898989;
 $whiteColor: #fff;
-$greyColor: #f2f2f2;
-$darkColor: #283645;
-$pinkColor: #d22856;
-$orangeColor: #f25b26;
-$greenColor: #3dc644;
+$darkGreyColor: #616161;
+$orangeColor: #E89F71;
+$redColor: #e97171;
+$greenColor: #2EC1AC;
 // ==========================================
 
 
@@ -61,16 +60,16 @@ $greenColor: #3dc644;
 // Минимальная ширина страницы
 $minWidth:320;
 // Ширина полотна (макета)
-$maxWidth: 1920;
+$maxWidth: 1440;
 // Ширина ограничивающего контейнера(0= нет ограничений)
-$maxWidthContainer: 1200; // как в макете
+$maxWidthContainer: 1240; // как в макете
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
 $containerPadding: 30;
 
 
 
-// ририна с отступами безопасности
+// ширина с отступами безопасности
 $containerWidth: $maxWidthContainer+$containerPadding;
 
 // брэйкпоинты(такие же как в смартгрид и bootstrap)
@@ -120,16 +119,6 @@ body {
 }
 
 // ===== CONTAINER =====
-// wrapper без smartgrid
-/*
-._wrapper{
-    // max-width: rem($maxWidthContainer);
-    max-width: $maxWidthContainer;
-    margin: 0 auto;
-    box-sizing: content-box;
-    padding: 0 rem(15);
-}*/
-
 // стили будут применяться ко всем классам содержащим __container
 [class*="__container"] {
     @if($maxWidthContainer>0) {

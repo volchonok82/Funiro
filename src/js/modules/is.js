@@ -67,3 +67,19 @@ function isIE() {
         document.documentElement.classList.add('_ie');
     }
 }
+
+/** */
+export function isNoHover() {
+    let isCoarse = matchMedia('(pointer:coarse)').matches;
+    let isNoHover = matchMedia('(hover:none)').matches;
+    return (isCoarse || isNoHover);
+}
+
+
+
+export function isHover() {
+    let isFine = matchMedia('(pointer: fine)').matches;
+    let isHover = matchMedia('(hover)').matches;
+    return (isFine || isHover);
+}
+/** */
