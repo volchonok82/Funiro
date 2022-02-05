@@ -39,9 +39,9 @@ import * as spollers from "./modules/spoller.js";
 //================================================
 
 // ===== form ===== 
-// import * as form from "./modules/form.js";
+import * as form from "./modules/form.js";
 // инициализируем все формы(если передать параметр false отключим валидацию оставив все по дефолту)
-// form.initForms();
+form.initForms();
 //================================================
 
 // ===== form-quantity(счетчик - +) ===== 

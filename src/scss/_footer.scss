@@ -1,0 +1,224 @@
+.footer {
+
+    // .footer__container
+    &__container {}
+
+    // .footer__body
+    &__body {
+        display: grid;
+        grid-template-columns: rem(250) 1fr rem(290);
+        @include clamp("column-gap", 80, 1);
+        @include clamp("padding-top", 80, 30);
+        @include clamp("padding-bottom", 50, 30);
+
+        border-top: 1px solid #D8D8D8;
+
+        color: $darkGreyColor;
+
+        @media (max-width: $lg) {
+            grid-template-columns: 1fr rem(290);
+        }
+
+        @media (max-width: $md) {
+            display: block;
+        }
+    }
+
+    // .footer__main
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (max-width: $lg) {
+            grid-column: span 2;
+            @include clamp("margin-bottom", 40, 20);
+        }
+    }
+
+    // .footer__logo
+    &__logo {
+        display: inline-block;
+    }
+
+    // .footer__text
+    &__text {
+        line-height: 1.5;
+        margin: 0 0 em(16) 0;
+    }
+
+    // .footer__contacts
+    &__contacts {}
+
+    // .footer__menu
+    &__menu {
+        @media (max-width: $md) {
+            @include clamp("margin-bottom", 40, 5);
+        }
+    }
+
+    // .footer__subscribe
+    &__subscribe {}
+}
+
+.contacts-footer {
+
+    // .contacts-footer__item
+    &__item {
+        &:not(:last-child) {
+            @include clamp("margin-bottom", 16, 10);
+        }
+    }
+
+    // .contacts-footer__link
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        column-gap: em(8);
+
+        line-height: 1.5;
+        color: inherit;
+        transition: color 0.3s ease 0s;
+
+        &:hover,
+        &:focus {
+            color: $orangeColor;
+        }
+    }
+}
+
+.menu-footer {
+    display: flex;
+
+    @media (max-width: $sm) {
+        flex-direction: column;
+    }
+
+    // .menu-footer__column
+    &__column {
+        flex: 33.3333%;
+    }
+
+    // .menu-footer__title
+    &__title {
+
+        @media (min-width: $sm) {
+            cursor: default;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        ._init & {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            @extend ._icon-arrow-bottom;
+
+            &::before {
+                @extend %ic;
+                font-size: rem(12);;
+                transition: transform 0.3s ease 0s;
+            }
+
+            &:hover,
+            &:focus {
+                &::before {
+                    color: $orangeColor;
+                }
+            }
+
+            &._active {
+                &::before {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    // .menu-footer__list
+    &__list {
+        @media (max-width: $sm) {
+            padding-bottom: rem(10);
+        }
+
+        >li {
+            &:not(:last-child) {
+                @include clamp("margin-bottom", 16, 10);
+            }
+
+            @media (max-width: $sm) {
+                &:last-child {
+                    @include clamp("margin-bottom", 16, 10);
+                }
+            }
+        }
+    }
+
+    // .menu-footer__link
+    &__link {
+        color: inherit;
+        font-weight: 500;
+        line-height: 1.2;
+
+        transition: color 0.3s ease 0s;
+
+        &:hover,
+        &:focus {
+            color: $orangeColor;
+        }
+    }
+}
+
+.subscribe {
+
+    // .subscribe__title
+    &__title {}
+
+    // .subscribe__form
+    &__form {
+        width: 100%;
+        display: flex;
+    }
+
+    // .subscribe__input
+    &__input {
+        flex: 1 1 auto;
+        margin-right: rem(4);
+        border: rem(2) solid #F4F5F7;
+
+        background-color: #F4F5F7;
+        padding: em(10);
+
+        transition: border-color 0.3s ease 0s;
+
+        &:hover,
+        &:focus {
+            border-color: $orangeColor;
+            outline: none;
+        }
+    }
+
+    // .subscribe__button
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 rem(46);
+        height: rem(45);
+
+        color: $whiteColor;
+        background-color: $orangeColor;
+        border: rem(2) solid $orangeColor;
+        transition: all 0.3s ease 0s;
+
+        &:hover,
+        &:focus {
+            background-color: $whiteColor;
+            color: $orangeColor;
+        }
+    }
+}

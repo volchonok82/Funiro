@@ -11,14 +11,16 @@ export function initForms(validate = true) {
         if (validate) {
             inputReplaceRequired(form);
             form.addEventListener('submit', (e) => {
-
                 e.preventDefault();
-
-                // имитация отправки формы
-                sendFormFake(e, form);
-
-                // отправка формы(настроить sendmail.php для PHPMailer)
-                // formSend(e,form);
+                if (form.hasAttribute('data-test')) {
+                    // имитация отправки формы
+                    sendFormFake(e, form);
+                    console.log('test');
+                } else {
+                    console.log('norm');
+                    // отправка формы(настроить sendmail.php для PHPMailer)
+                    formSend(e,form);
+                }
             });
         }
     });
@@ -153,7 +155,7 @@ function formValidate(formName) {
             errorBlock.className = '_form-error-block';
             errorBlock.innerHTML = errorText;
             formRemoveError(input, errorBlock.className);
-        }   
+        }
 
         //убираем класс ошибки
         formRemoveError(input);

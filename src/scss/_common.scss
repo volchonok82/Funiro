@@ -1,0 +1,9 @@
+._footer-title {
+    @include clamp("font-size", 24, 20);
+    font-weight: 700;
+    line-height: math.div(29, 24);
+
+    color: #000;
+
+    margin: 0 0 em(16, 24) 0;
+}
