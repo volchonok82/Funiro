@@ -1,3 +1,42 @@
+// кнопки
+._btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: rem(48);
+
+    color: $whiteColor;
+    font-weight: 600;
+    line-height: 1.5;
+
+    background-color: $orangeColor;
+    transition: background-color 0.3s ease 0s;
+
+    &:hover,
+    &:focus {
+        background-color: darken($orangeColor, 10%);
+        ;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+
+    // белая
+    &--white {
+        color: $orangeColor;
+        background-color: #fff;
+        border: rem(1) solid $orangeColor;
+
+        &:hover,
+        &:focus {
+            color: $whiteColor;
+            background-color: $orangeColor;
+        }
+    }
+}
+
+// заголовки подвала
 ._footer-title {
     @include clamp("font-size", 24, 20);
     font-weight: 700;
@@ -6,4 +45,105 @@
     color: #000;
 
     margin: 0 0 em(16, 24) 0;
+}
+
+
+// стрелки слайдера
+.slider-arrows {
+    display: grid;
+    grid-template-columns: repeat(2, rem(48));
+    gap: rem(8);
+}
+
+.slider-arrow {
+    height: rem(48);
+    border-radius: 50%;
+    background-color: rgba($orangeColor, 0.3);
+
+    transition: all 0.3s ease 0s;
+
+    &::before {
+        color: $orangeColor;
+    }
+
+    // .slider-arrow__prev
+    &__prev {
+        &::before {
+            transform: rotate(180deg);
+        }
+    }
+
+    // .slider-arrow__next
+    &__next {}
+
+    &:hover,
+    &:focus {
+        background-color: $orangeColor;
+
+        &::before {
+            color: $whiteColor;
+        }
+
+    }
+
+    // белые
+    &--white {
+        background: #FFF;
+        box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16);
+    }
+
+}
+
+// bullets
+.swiper-pagination {
+    &-bullets {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-bullet {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 rem(27);
+        height: rem(27);
+        margin: rem(2) 0;
+        &:not(:last-child){
+            margin-right: rem(12);
+        }
+        cursor: pointer;
+
+        &::after{
+            content:'';
+            width: rem(11);
+            height: rem(11);
+            border-radius: 50%;
+            background-color: #d8d8d8;
+            transition: background-color 0.3s ease 0s;
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid $orangeColor;
+            transform: scale(0);
+
+            transition: transform 0.3s ease 0s;
+        }
+
+        &-active {
+            &::after{
+                background-color:$orangeColor;
+            }
+            &::before{
+                transform: scale(1);
+            }
+        }
+    }
 }

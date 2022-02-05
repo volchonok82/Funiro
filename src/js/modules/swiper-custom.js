@@ -7,6 +7,8 @@
 import Swiper, {
     Navigation,
     Pagination,
+    A11y,
+    Parallax
 } from 'swiper';
 /*
 основные модули слайдера:
@@ -37,29 +39,22 @@ function initSliders() {
     bildSliders(); // добавление классов слайдера (при необходимости отключить)
 
     // перечень слайдеров
-    if (document.querySelector('.sliderClass')) {
-        new Swiper('.sliderClass', {
+    if (document.querySelector('.slider-main__body')) {
+        new Swiper('.slider-main__body', {
             // подключение модулей
-            modules: [Navigation, Pagination],
-
-            // direction: "vertical", //направление
-
-            /*мультирядность, не работает с autoHeight и loop  
-            grid: {
-                rows: 3,
-                // fill: 'row'
-            },*/
+            modules: [Navigation, Pagination,A11y,Parallax],
 
             watchOverflow: true, // отключение функционала если слайдов меньше чем нужно
             // initialSlide: 0, // стартовый слайд
-            slidesPerView: 2, // количество видимых слайдов
+            slidesPerView: 1, // количество видимых слайдов
             slidesPerGroup: 1, // количество пролистываемых слайдов
             // centeredSlides: true,// активный слайд по центру
-            spaceBetween: 20, //расстояние между слайдами
+            spaceBetween: 32, //расстояние между слайдами
             // autoHeight: true, //автовысота(если задаем фиксированное значение отключить)
             speed: 800, //скорость прокрутки(по умолчанию 300)
-            // loop: true, //бесконечный сладер
-            loopedSlides: 0, // колучество дублирующих сладов
+            loop: true, //бесконечный сладер
+            loopedSlides: 3, // колучество дублирующих сладов
+            parallax: true, //paralax effect
 
             /*//свободный режим(перемещаем слайды без фиксированной позиции,  скролится колесом мыши)
             freeMode: {
@@ -79,13 +74,13 @@ function initSliders() {
             // стрелки и дотсы могут быть где угодно в документе, будут отрабатывать по указанным ниже классам
             // arrows
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.slider-main .slider-arrow__next',
+                prevEl: '.slider-main .slider-arrow__prev',
             },
             /************* */
             // dotts
             pagination: {
-                el: '.swiper-pagination',
+                el: '.controls-slider-main__dotts',
                 clickable: true, // если не включено, не кликабельно
                 // тип пагинации "bullets", "fraction", "progressbar" or "custom"
                 // Буллеты

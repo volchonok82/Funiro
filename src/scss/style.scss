@@ -132,12 +132,12 @@ body {
         padding-left: rem(math.div($containerPadding, 2));
         padding-right: rem(math.div($containerPadding, 2));
 
-
-        // на маленьких экранах по 5px
+        /*
+        // на маленьких экранах по 5px 
         @media (max-width: $xs) {
             padding-left: rem(math.div($containerPadding - 20, 2));
-            padding-right:rem(math.div($containerPadding - 20, 2));
-        }
+            padding-right: rem(math.div($containerPadding - 20, 2));
+        }*/
     }
 }
 
@@ -158,7 +158,7 @@ body {
 
 
 // ========== SWIPER-SLIDER =========
-// @import '_swiper-custom';
+@import '_swiper-custom';
 
 // =============== noUi ===============
 // @import '_noUi-custom';
@@ -177,5 +177,3 @@ body {
 //подключение стилей отдельных страниц 
 // =============== Главная  ===============
 @import '_index';
-
-

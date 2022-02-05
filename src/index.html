@@ -1,7 +1,7 @@
 @@include('./html/head.html',{
 'lang':'ru',
 'meta_desc': 'описание страницы',
-'title': 'index',
+'title': 'Funiro',
 'fa' : false,
 'fontawesome' : false
 })
@@ -13,17 +13,99 @@
         }) -->
 
         @@include('./html/header.html',{
-            'header-class': 'home-page__header'
+        'header-class': 'home-page__header'
         })
 
         <main class="home-page__main main">
-  
+            <section class="home-page__main-slider main-slider">
+                <div class="main-slider__container">
+                    <div class="main-slider__body">
+                        <!-- блок с контентом -->
+                        <div class="main-slider__content content-main-slider">
+                            <h1 class="content-main-slider__title">
+                                High-Quality Furniture Just For You
+                            </h1>
+                            <p class="content-main-slider__text">
+                                Our furniture is made from selected and best quality materials that are suitable for
+                                your dream home
+                            </p>
+                            <a href="#" class="content-main-slider__button _btn" data-da=".main-slider__body,991.98">Shop Now</a>
+                        </div>
+
+                        <!-- блок со слайдером -->
+                        <div class="main-slider__slider slider-main">
+                            <!-- блок с элементами контроля -->
+                            <div class="slider-main__controls controls-slider-main">
+                                <!-- точки -->
+                                <div class="controls-slider-main__dotts"></div>
+                                <!-- стрелки -->
+                                <div class="controls-slider-main__arrows slider-arrows">
+                                    <button type="button" class="slider-arrow slider-arrow__prev _icon-arrow"></button>
+                                    <button type="button" class="slider-arrow slider-arrow__next _icon-arrow"></button>
+                                </div>
+                            </div>
+                            <!-- слайдер свайпер -->
+                            <div class="slider-main__body">
+                                <!-- оболочка свайпера -->
+                                <div class="slider-main__swiper">
+
+                                    <!-- слайд свайпера -->
+                                    <div class="slider-main__slide">
+                                        <div class="slider-main__image">
+                                            <picture>
+                                                <source srcset="@img/main-slider/01.webp" type="image/webp">
+                                                <img src="@img/main-slider/01.jpg" alt="description 01">
+                                            </picture>
+                                        </div>
+                                        <a href="#" data-swiper-parallax-opacity="0" data-swiper-parallax-x="-100%" class="slider-main__content">
+                                            <div class="slider-main__title">Bohauss</div>
+                                            <p class="slider-main__text">Luxery big sofa 2-seat</p>
+                                            <p class="slider-main__price _icon-arrow-long">Rp 17.000.000</p>
+                                        </a>
+                                    </div>
+
+                                    <!-- слайд свайпера -->
+                                    <div class="slider-main__slide">
+                                        <div class="slider-main__image">
+                                            <picture>
+                                                <source srcset="@img/main-slider/02.webp" type="image/webp">
+                                                <img src="@img/main-slider/02.jpg" alt="description 02">
+                                            </picture>
+                                        </div>
+                                        <a href="#" data-swiper-parallax-opacity="0" data-swiper-parallax-x="-100%" class="slider-main__content">
+                                            <div class="slider-main__title">Bohauss</div>
+                                            <p class="slider-main__text">Luxery big sofa 2-seat</p>
+                                            <p class="slider-main__price _icon-arrow-long">Rp 17.000.000</p>
+                                        </a>
+                                    </div>
+
+                                    <!-- слайд свайпера -->
+                                    <div class="slider-main__slide">
+                                        <div class="slider-main__image">
+                                            <picture>
+                                                <source srcset="@img/main-slider/03.webp" type="image/webp">
+                                                <img src="@img/main-slider/03.jpg" alt="description 03">
+                                            </picture>
+                                        </div>
+                                        <a href="#" data-swiper-parallax-opacity="0" data-swiper-parallax-x="-100%" class="slider-main__content">
+                                            <div class="slider-main__title">Bohauss</div>
+                                            <p class="slider-main__text">Luxery big sofa 2-seat</p>
+                                            <p class="slider-main__price _icon-arrow-long">Rp 17.000.000</p>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </main>
 
 
         @@include('./html/footer.html',{
-            'footer-class': 'home-page__footer'
+        'footer-class': 'home-page__footer'
         })
     </div>
 

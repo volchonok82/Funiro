@@ -8,8 +8,8 @@
 // @import "../../node_modules/swiper/modules/free-mode/free-mode"; // - styles required for Free Mode module
 // @import "../../node_modules/swiper/modules/grid/grid"; // - styles required for Grid module
 // @import "../../node_modules/swiper/modules/lazy/lazy"; // - styles required for Lazy module
-@import "../../node_modules/swiper/modules/navigation/navigation"; // - styles required for Navigation module
-@import "../../node_modules/swiper/modules/pagination/pagination"; // - styles required for Pagination module
+// @import "../../node_modules/swiper/modules/navigation/navigation"; // - styles required for Navigation module
+// @import "../../node_modules/swiper/modules/pagination/pagination"; // - styles required for Pagination module
 // @import "../../node_modules/swiper/modules/scrollbar/scrollbar"; // - styles required for Scrollbar module
 // @import "../../node_modules/swiper/modules/virtual/virtual"; // - styles required for Virtual module
 // @import "../../node_modules/swiper/modules/zoom/zoom"; //
@@ -19,168 +19,173 @@
 
 
 // класс слайдера
-.sliderClass {
-    position: relative;
-    background-color: pink;
-    // overflow: hidden;
+/**/
+// .sliderClass {
+//     position: relative;
+//     background-color: pink;
+//     // overflow: hidden;
 
-    height: 100%;
-    // height: 400px;// если указываем фиксированную высоту, отключить у картинки процентный паддинг
-    //! для вертикального слайдера обязательна фиксированная высота
-    //height: 700px; 
+//     height: 100%;
+//     // height: 400px;// если указываем фиксированную высоту, отключить у картинки процентный паддинг
+//     //! для вертикального слайдера обязательна фиксированная высота
+//     //height: 700px; 
 
-    // .sliderClass__wrapper
-    &__wrapper {}
+//     // .sliderClass__wrapper
+//     &__wrapper {}
 
-    // .sliderClass__slide
-    &__slide {
-        height: 100%;
-        background-color: yellowgreen;
+//     // .sliderClass__slide
+//     &__slide {
+//         height: 100%;
+//         background-color: yellowgreen;
 
-        position: relative;
-        // padding-bottom: calc(66.66% / 2); //нужный паддинг надо поделить на количество отображаемых слайдов
+//         position: relative;
+//         // padding-bottom: calc(66.66% / 2); //нужный паддинг надо поделить на количество отображаемых слайдов
 
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+//         img {
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: 100%;
+//             height: 100%;
+//             object-fit: cover;
+//         }
+//     }
 
-    // =============================  
-    /*// автоширина
-    .swiper-slide{
-        width: auto;
-    }*/
-
-
-    /*// мультирядность
-    height: 700px; // обязательна высота
-    .swiper-slide {
-        // высоту слайда считать по формуле(передать такие же данные как в js файле)
-        height: heigthSwiperSlide(3, 20);
-        overflow: hidden;
-    }*/
-
-    // !============= Управление =================
-    // !для сложного дизайна отключить стандартные стили и с нуля написать свои(проще чем переопределять все)
-    // ==============================
-    // стрелки созданы с помощью иконочного шрифта и можно
-    // менять  цыет и размер у стандартных
-    .swiper-button-prev,
-    .swiper-button-next {
+//     // =============================  
+//     /*// автоширина
+//     .swiper-slide{
+//         width: auto;
+//     }*/
 
 
-        &::after,
-        &::before {
-            color: rgba(black, 0.3);
-        }
+//     /*// мультирядность
+//     height: 700px; // обязательна высота
+//     .swiper-slide {
+//         // высоту слайда считать по формуле(передать такие же данные как в js файле)
+//         height: heigthSwiperSlide(3, 20);
+//         overflow: hidden;
+//     }*/
 
-        &:hover,
-        &:focus {
+//     // !============= Управление =================
+//     // !для сложного дизайна отключить стандартные стили и с нуля написать свои(проще чем переопределять все)
+//     // ==============================
+//     // стрелки созданы с помощью иконочного шрифта и можно
+//     // менять  цыет и размер у стандартных
+//     .swiper-button-prev,
+//     .swiper-button-next {
 
-            &::after,
-            &::before {
-                color: rgba(black, 0.6);
-            }
-        }
 
-        &:active {
+//         &::after,
+//         &::before {
+//             color: rgba(black, 0.3);
+//         }
 
-            &::after,
-            &::before {
-                color: rgba(black, 0.1);
-            }
-        }
-    }
+//         &:hover,
+//         &:focus {
 
-    // ! простые буллеты и фракцию проще написать с нуля, чем переопередлять все, а прогрессбар и скролбар лучше подключать
-    // Пагинация
-    .swiper-pagination {
-        bottom: 3px; //по дефолту
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
+//             &::after,
+//             &::before {
+//                 color: rgba(black, 0.6);
+//             }
+//         }
 
-        // для вертикального слайдера
-        &-vertical.swiper-pagination-bullets {
-            right: 50px; //bottom вверху отклюяить
-            flex-direction: column; //!не менять(если не пишем с нуля)
+//         &:active {
 
-            .swiper-pagination-bullet {
-                margin: 15px 0; //отступ между точками
-            }
-        }
+//             &::after,
+//             &::before {
+//                 color: rgba(black, 0.1);
+//             }
+//         }
+//     }
 
-        // Буллеты
-        &-bullet {
-            display: block;
-            width: rem(6);
-            height: rem(6);
-            line-height: rem(6);
-            background-color: rgba(black, 0.3);
-            opacity: 1;
 
-            // отступ между точками проще через такой селектор
-            &:not(:last-child) {
-                margin-right: 10px;
-            }
 
-            &-active {
-                width: rem(12);
-                height: rem(12);
-                background-color: $whiteColor;
-                border: solid rem(3) black;
-            }
+//     // ! простые буллеты и фракцию проще написать с нуля, чем переопередлять все, а прогрессбар и скролбар лучше подключать
 
-            &:hover,
-            &:focus {
-                background-color: rgba(black, 0.6);
-            }
 
-            &:active {
-                background-color: rgba(black, 0.1);
-            }
-        }
+//     // Пагинация
+//     .swiper-pagination {
+//         bottom: 3px; //по дефолту
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         background-color: #fff;
 
-        // Фракция
-        &-fraction {
-            font-size: rem(20);
-            color: #fff;
+//         // для вертикального слайдера
+//         &-vertical.swiper-pagination-bullets {
+//             right: 50px; //bottom вверху отклюяить
+//             flex-direction: column; //!не менять(если не пишем с нуля)
 
-            .swiper-pagination-current {
-                color: red;
-            }
+//             .swiper-pagination-bullet {
+//                 margin: 15px 0; //отступ между точками
+//             }
+//         }
 
-            .swiper-pagination-total {
-                color: blue;
-            }
-        }
+//         // Буллеты
+//         &-bullet {
+//             display: block;
+//             width: rem(6);
+//             height: rem(6);
+//             line-height: rem(6);
+//             background-color: rgba(black, 0.3);
+//             opacity: 1;
 
-        // прогрессбар
-        &-progressbar {
-            position: relative;
-            background-color: yellowgreen;
-            height: 5px;
+//             // отступ между точками проще через такой селектор
+//             &:not(:last-child) {
+//                 margin-right: 10px;
+//             }
 
-            &-fill {
-                background-color: red;
-            }
-        }
-    }
+//             &-active {
+//                 width: rem(12);
+//                 height: rem(12);
+//                 background-color: $whiteColor;
+//                 border: solid rem(3) black;
+//             }
 
-    // скролл
-    .swiper-scrollbar {
-        // height: 15px;
-        background-color: yellowgreen;
+//             &:hover,
+//             &:focus {
+//                 background-color: rgba(black, 0.6);
+//             }
 
-        &-drag {
-            cursor: pointer;
-            background-color: red;
-        }
-    }
-}
+//             &:active {
+//                 background-color: rgba(black, 0.1);
+//             }
+//         }
+
+//         // Фракция
+//         &-fraction {
+//             font-size: rem(20);
+//             color: #fff;
+
+//             .swiper-pagination-current {
+//                 color: red;
+//             }
+
+//             .swiper-pagination-total {
+//                 color: blue;
+//             }
+//         }
+
+//         // прогрессбар
+//         &-progressbar {
+//             position: relative;
+//             background-color: yellowgreen;
+//             height: 5px;
+
+//             &-fill {
+//                 background-color: red;
+//             }
+//         }
+//     }
+
+//     // скролл
+//     .swiper-scrollbar {
+//         // height: 15px;
+//         background-color: yellowgreen;
+
+//         &-drag {
+//             cursor: pointer;
+//             background-color: red;
+//         }
+//     }
+// }

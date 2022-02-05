@@ -11,13 +11,13 @@ import * as headerAction from "./modules/header.js";
 // работа бургера
 headerAction.actionBurgerMenu();
 // скрытие хедера при прокрутке
-headerAction.hideHeader('.header', 100);
+headerAction.hideHeader('.header', 200);
 // установка отступа для следующего за хедером элемента (не main)
 // headerAction.setPaddingHeaderNextBlock('.header', "Selector");
 //================================================
 
 // ===== dynamic adaptiv=====
-// import * as da from "./modules/dynamicAdapt.js";
+import * as da from "./modules/dynamicAdapt.js";
 //================================================  
 
 // ===== spollers (ломают IE11)=====
@@ -49,7 +49,7 @@ form.initForms();
 //================================================
 
 //  ===== SWIPER (не работает в IE11)===== 
-// import * as swiper from "./modules/swiper-custom.js";
+import * as swiper from "./modules/swiper-custom.js";
 //================================================
 
 //  ===== noUiSlider===== 
