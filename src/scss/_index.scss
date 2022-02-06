@@ -4,7 +4,14 @@
     &__main {}
 
     // .home-page__main-slider
-    &__main-slider {}
+    &__main-slider {
+        @include clamp("margin-bottom", 88, 30);
+    }
+
+    // .home-page__features
+    &__features {
+        @include clamp("margin-bottom", 88, 30);
+    }
 }
 
 
@@ -39,6 +46,7 @@
         flex: 0 0 prc(494, 1240);
         align-self: flex-start;
         @include clamp("margin-bottom", 80, 20);
+
         @media (max-width: $md) {
             margin: 0px rem(-15);
         }
@@ -53,6 +61,7 @@
         @media (min-width: $md) {
             padding: 0 0 0 rem(30);
         }
+
         @media (max-width: $md) {
             margin: 0 rem(-15);
         }
@@ -96,6 +105,7 @@
     // .content-main-slider__button
     &__button {
         width: 100%;
+        font-size: rem(20);
         @include clamp("min-height", 78, 45);
     }
 }
@@ -109,6 +119,7 @@
     // .slider-main__controls
     &__controls {
         margin: 0 0 rem(20) 0;
+
         @media (max-width: $md) {
             margin: rem(10) 0 rem(20);
         }
@@ -150,7 +161,7 @@
 
     // .slider-main__content
     &__content {
-        
+
         min-width: rem(290);
         max-height: rem(300);
         overflow: auto;
@@ -220,9 +231,11 @@
     // .controls-slider-main__dotts
     &__dotts {
         flex: 1 1 auto;
+
         @media (min-width: $md) {
-            padding: 0 rem(20) 0 0 ;
+            padding: 0 rem(20) 0 0;
         }
+
         @media (max-width: $md) {
             justify-content: center;
         }
@@ -241,3 +254,62 @@
     // .controls-slider-main__arrows
     &__arrows {}
 }
+
+// =============== Feature ===============
+.features {
+
+    // .features__container
+    &__container {}
+
+    // .features__items
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    // .features__item
+    &__item {
+        
+    }
+}
+
+.item-features {
+    
+    display: inline-grid;
+    grid-template: auto auto / rem(80) 1fr;
+    padding: rem(15) 0;
+    @media (max-width: $md) {
+        min-width: rem(290);
+    }
+    @media (max-width: $sm) {
+        grid-template: auto auto / auto 1fr;
+    }
+
+    // .item-features__ico
+    &__ico {
+        grid-row: span 2;
+        align-self: center;
+        text-align: center;
+        @media (max-width: $md) {
+            padding:  0 rem(15) 0 0 ;
+        }
+    }
+
+    // .item-features__title
+    &__title {
+        font-size: rem(18);
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: em(2, 18);
+    }
+
+    // .item-features__text
+    &__text {
+        font-weight: 500;
+        line-height: 1.5;
+        color: $greyColor;
+    }
+}
+
+// =============== Products ===============
