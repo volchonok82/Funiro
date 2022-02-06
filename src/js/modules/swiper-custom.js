@@ -42,7 +42,7 @@ function initSliders() {
     if (document.querySelector('.slider-main__body')) {
         new Swiper('.slider-main__body', {
             // подключение модулей
-            modules: [Navigation, Pagination,A11y,Parallax],
+            modules: [Navigation, Pagination, A11y, Parallax],
 
             watchOverflow: true, // отключение функционала если слайдов меньше чем нужно
             // initialSlide: 0, // стартовый слайд
@@ -173,29 +173,6 @@ function initSliders() {
                 // containerRoleDescriptionMessage: '',
                 // itemRoleDescriptionMessage: '',
             },
-
-
-            /*  // брейкпоинты (адаптив)
-            breakpoints:{
-                320:{
-                    slidesPerView: 1,
-                    spaceBetween:0,
-                    autoHeight: true,
-                },
-          
-                768:{
-                    slidesPerView: 2,
-                    spaceBetween:20,
-                },
-                992:{
-                    slidesPerView: 3,
-                    spaceBetween:20,
-                },
-                1268:{
-                    slidesPerView: 4,
-                    spaceBetween:30,
-                }
-            },*/
             on: {
 
             }
@@ -203,5 +180,145 @@ function initSliders() {
         });
 
     }
+
+    // tips
+    if (document.querySelector('.slider-tips__body')) {
+        new Swiper('.slider-tips__body', {
+            // подключение модулей
+            modules: [Navigation, Pagination, A11y],
+
+            watchOverflow: true, // отключение функционала если слайдов меньше чем нужно
+            initialSlide: 1, // стартовый слайд
+            slidesPerView: 3, // количество видимых слайдов
+            slidesPerGroup: 1, // количество пролистываемых слайдов
+            // centeredSlides: true,// активный слайд по центру
+            spaceBetween: 32, //расстояние между слайдами
+            // autoHeight: true, //автовысота(если задаем фиксированное значение отключить)
+            speed: 800, //скорость прокрутки(по умолчанию 300)
+            loop: true, //бесконечный сладер
+            loopedSlides: 3, // колучество дублирующих сладов
+            // parallax: true, //paralax effect
+
+            /*//свободный режим(перемещаем слайды без фиксированной позиции,  скролится колесом мыши)
+            freeMode: {
+                enabled: true,
+                minimumVelocity: 0.2,
+                momentum: false,
+            },*/
+
+            /* // Автопрокрутка
+            autoplay: {
+                delay: 1000, // пауза между прокруткой
+                stopOnLastSlide: true, // закончить на последнем слайде
+                disableOnInteraction: false // отключить после ручного переключения
+            },*/
+
+            /************* */
+            // стрелки и дотсы могут быть где угодно в документе, будут отрабатывать по указанным ниже классам
+            // arrows
+            navigation: {
+                nextEl: '.slider-tips .slider-arrow__next',
+                prevEl: '.slider-tips .slider-arrow__prev',
+            },
+            /************* */
+            // dotts
+            pagination: {
+                el: '.controls-tips__dotts',
+                clickable: true, // если не включено, не кликабельно
+                // тип пагинации "bullets", "fraction", "progressbar" or "custom"
+                // Буллеты
+                type: 'bullets',
+                // dynamicBullets: true, // Динамические буллеты(изменяют размер в зависимости от дальности к текущему слайду)
+
+                // type: 'fraction',// Фракция (текущий номер слайда из общего числа)
+
+                // type: 'progressbar',// Прогрессбар(не работает с бесконечным слайдером)
+            },
+
+
+            /************* */
+            // Эффекты переключения слайдов       
+            effect: 'slide', // листание(по умолчанию) 
+
+            /************* */
+            // simulateTouch: false, // перетаскивания на ПК
+            touchRatio: 1, // чувствительность свайпа(для меньшего усилия увеличить число, 0 отключит возможность перетаскивания на всех устройствах)  
+            touchAngle: 45, // Угол срабатывания свайпа/перетаскивания         
+            grabCursor: true, // Курсор перетаскивания     
+            slideToClickedSlide: true, // перключение на слайд при клике на него
+
+            /************* */
+            observer: true, // Обновить свайпер (например когда он изначально скрыт)при изменении элементов слайдера      
+            observeParents: true, // при изменении родительских элементов слайдера       
+            observeSlideChildren: true, // при изменении дочерних элементов слайда
+            /************* */
+            // управление колесом мыши
+            mousewheel: {
+                enabled: false,
+                sensitivity: 1, // чувствительность колеса
+                eventsTarget: ".swiper-container" // класс объекта на котором будет срабатывать прокрутка мышью (если сладеров несколько оставляем по умолчанию)
+            },
+
+            // управление клавиатурой
+            keyboard: {
+                enabled: true, // вкл/выкл   
+                onlyInViewport: true, // вкл/выкл только когда слайдер в пределах вьюпорта 
+                pageUpDown: false, // вкл/выкл управление клавишами pageUp pageDown
+            },
+            /************* */
+            // preloadImages: false, // отключить предзагрузку картинок        
+            lazy: { // Lazy Loading
+                loadOnTransitionStart: true, // подгружать на старте переключения слайда         
+                loadPrevNext: true, // подгрузить предыдущую и следующую картинки
+            },
+            watchSlidesProgress: true, // слежка за видимыми слайдами            
+            watchSlidesVisibility: true, // добавление класса видимым слайдам
+            /************* */
+
+            // доступность
+            a11y: {
+                enabled: true, // включить/выключить
+                // сообщения
+                prevSlideMessage: 'Previous slide',
+                nextSlideMessage: 'Next slide',
+                firstSlideMessage: 'This is the first slide',
+                lastSlideMessage: 'This is the last slide',
+                paginationBulletMessage: 'Go to slide {{index}}',
+                // notificationClass: 'swiper-notification',
+                // containerMessage: '',
+                // containerRoleDescriptionMessage: '',
+                // itemRoleDescriptionMessage: '',
+            },
+             /*  */// брейкпоинты (адаптив)
+            breakpoints:{
+                320:{
+                    slidesPerView: 1,
+                    spaceBetween:0,
+                },
+          
+                767.98:{
+                    slidesPerView: 2,
+                    spaceBetween:15,
+                    centeredSlides: false,
+                },
+                991.98:{
+                    slidesPerView: 3,
+                    spaceBetween:32,
+                    centeredSlides: true,
+                },
+                // 1268:{
+                //     slidesPerView: 4,
+                //     spaceBetween:30,
+                // }
+            },
+
+            on: {
+
+            }
+
+        });
+
+    }
+
 
 }
