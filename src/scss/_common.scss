@@ -36,6 +36,14 @@
     }
 }
 
+// заголовки main
+._main-title {
+    @include clamp("font-size", 40, 24);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+
 // заголовки подвала
 ._footer-title {
     @include clamp("font-size", 24, 20);
